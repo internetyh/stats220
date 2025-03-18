@@ -14,5 +14,5 @@ A meme that captures how I currently feel about my university studies is ![](htt
 
 1. **Bold**
 2. *Italics*
-3. https://reddit.com/
-4. https://tenor.com/view/bad-work-citizen-gif-27615137
+3. ![Hyperlink to Reddit](https://reddit.com/)
+4. ![](https://tenor.com/view/bad-work-citizen-gif-27615137)
