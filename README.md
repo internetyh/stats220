@@ -10,7 +10,7 @@ This is my repo for STATS 220.
 
 A meme that captures how I currently feel about my university studies is ![](https://c.tenor.com/8druEACXtX8AAAAd/tenor.gif)
 
-## Requriments for Project 1
+## Requirements for Project 1
 
 1. **Bold**
 2. *Italics*
