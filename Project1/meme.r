@@ -13,3 +13,13 @@ image <- image_read("https://i.kym-cdn.com/entries/icons/facebook/000/037/158/th
 image <- add_text(image, "White")
 
 image %>% image_write("my_meme.png")
+
+frames = c()
+text_colors = c("red", "blue", "green", "orange")
+for (i in 1:length(text_colors)) {
+  frames <- append(frames, add_text(image, text_colors[i]))
+}
+
+animation <- image_animate(frames, fps=5, optimize=TRUE)
+animation %>% image_write("my_animated_meme.gif")
+animation
