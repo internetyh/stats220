@@ -1,0 +1,89 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+body {
+  background-color: black;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+```
+
+## How political is reddit?
+
+Given the current nature of the world one might wonder how political different social media sites are
+
+Reddit is one such site, and it is easy to quantify posts on this site due to multiple factors
+- very popular posts are put onto the front page of the site
+- posts have a numerical number to determine how many people like the post
+- since posts are from different subreddits multiple types of content gets put on the front page
+- posts on the front page are determined by how much people interact with them
+
+```{r}
+library(tidyverse)
+
+logged_data <- read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSUiUAyo4i76UMx-gIXi7-JKDLv_loy-CZcT8fJquZIumCmjUC9iiKCreEJC4WMFfwFpMOKnBZa-hrr/pub?output=csv')
+
+latest_data <- logged_data %>%
+  rename(time = 2) %>%
+  rename(total_posts = 3) %>%
+  rename(elon_posts = 4) %>%
+  rename(trump_posts = 5) %>%
+  rename(upvotes = 6) %>%
+  rename(type_of_post = 7)
+```
+
+## First Bar Chart
+The following is a bar chart that shows the number of upvotes the most upvoted post got
+
+It is colored by the type of post (either happening on American soil or somewhere else but related to American politics)
+
+```{r}
+latest_data %>%
+  ggplot() + 
+    geom_bar(aes(x = upvotes, fill=type_of_post)) + 
+    labs(title="Upvotes the most popular political post got, colored by the type of post it was") + 
+    xlab("Number of upvotes") + 
+    ylab("Number of posts") + 
+    theme(axis.text.x = element_text(angle=45, hjust=1))
+```
+
+This looks pretty much like a normal distribution
+
+I think one interesting thing is that it seems like the bar for posts that don't happen on American soil to be the most upvoted post is much higher than posts that happen on American soil
+
+## Second Bar Chart
+The following is a bar chart of posts that are related to American politics but not directly related to either Donald Trump or Elon Musk
+
+It is colored by the time period that those posts showed up in (in NZT)
+
+```{r}
+latest_data %>%
+  ggplot() +
+    geom_bar(aes(x = (total_posts - elon_posts - trump_posts), fill=time)) + 
+    labs(title = "Posts tangentially related to American politics by the time they appeared on /r/all") + 
+    xlab("Tangentially related posts") + 
+    ylab("Number of posts")
+```
+
+This also pretty much looks like a normal distribution but has a much smaller variance
+
+Based on the fact that America is between UTC-8 to UTC-5 and New Zealand is UTC + 12 we can see that most of the posts that have nothing to do with American news happen around night-time in America
+
+## Summary Values
+```{r}
+total_mean <- mean(latest_data[["total_posts"]])
+trump_mean <- mean(latest_data[["trump_posts"]])
+```
+
+The average number of posts that have something to do with Donald Trump is `r trump_mean`
+
+The average number of posts about American politics in general is `r total_mean`

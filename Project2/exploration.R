@@ -1,6 +1,6 @@
 library(tidyverse)
 
-logged_data <- read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vS_p_cVWnikMDSqYOE8FdxeXxDlN5H60IvGmLGvCn5SizyMcn_qVbAlaB7jLs4fSqMFDioPpl3pvV0U/pub?output=csv')
+logged_data <- read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vSUiUAyo4i76UMx-gIXi7-JKDLv_loy-CZcT8fJquZIumCmjUC9iiKCreEJC4WMFfwFpMOKnBZa-hrr/pub?output=csv')
 
 latest_data <- logged_data %>%
   rename(time = 2) %>%
@@ -49,7 +49,8 @@ latest_data %>%
     geom_bar(aes(x = upvotes, fill=type_of_post)) + 
     labs(title="Upvotes the most popular political post got, colored by the type of post it was") + 
     xlab("Number of upvotes") + 
-    ylab("Number of posts")
+    ylab("Number of posts") + 
+    theme(axis.text.x = element_text(angle=45, hjust=1))
 
 # mean and var of total posts
 summary(latest_data[3])[4]
@@ -77,7 +78,8 @@ var(latest_data[5])
 #    geom_bar(aes(x = upvotes, fill=type_of_post)) + 
 #    labs(title="Upvotes the most popular political post got, colored by the type of post it was") + 
 #    xlab("Number of upvotes") + 
-#    ylab("Number of posts")
+#    ylab("Number of posts") + 
+#    theme(axis.text.x = element_text(angle=45, hjust=1))
 #
-#summary(latest_data[3])[4]
-#summary(latest_data[5])[4]
+#mean(latest_data[["trump_posts"]])
+#mean(latest_data[["total_posts"]])
