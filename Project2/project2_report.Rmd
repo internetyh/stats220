@@ -1,0 +1,88 @@
+---
+title: Project 2
+author: Karl Jackson
+subtitle: STATS 220 Semester One 2025
+output: 
+    html_document:
+        code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+body {
+  background-color: black;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+```
+
+## Introduction
+
+The focus for this data collection was to see how political Reddit was. I've always known that it had the capacity to be political and given the current condition of the United States, it wouldn't be uprising if a significant percentage of the sites traffic was due to the current political climate. However I wanted to quantify it
+
+I observed posts on /r/all (this functions as an aggregate of the top posts on Reddit at any given).
+
+Due to how this aggregate works, it is only beneficial to observe no more than the first 50 posts.
+
+I decided to only observe the top 25 posts, mainly due to not wanting to check 50 posts multiple times a day.
+
+When designing the form I wanted anyone to be able to submit data about the site while making it clear what data I needed 
+
+While also considering the type of people that would be submitting on the form. The memes I have put onto the form are due to the inherit liberal leaning that Reddit has. 
+
+Since it just asks for the time of day (in NZT) and information about posts, people that submit the form can be confident that no personal information is gathered.
+
+Given the current political climate I only wanted to collect information about the two biggest people in that sphere, Donald Trump and Elon Musk
+
+I also made sure that a user could not put in any numbers higher than 25 to make sure that people wouldn't submit obvious flawed data
+
+I wanted to learn a couple of things from this data collection
+
+1. If time had an impact on the number of posts
+2. How many posts would be related to world affairs pertaining to American politics
+3. How popular political posts are
+4. The types of political posts that are made (the actual information inside of them, who they pertain to, etc.)
+
+[Google Form](https://docs.google.com/forms/d/e/1FAIpQLSdb2OtQ3OIDCCFyz39kYOpj0pFn3BFf_g6hsJjrMrkrp-i8FQ/viewform)
+
+## Dynamic Report
+
+[GitHub Pages](https://internetyh.github.io/stats220/)
+
+## Creativity
+
+I think the data I decided to collect was unique, although I am aware that analyzing American politics has no immediate effect on New Zealand as a country it still has a knock on effect and is a good thing to investigate
+
+This is especially true as we can see multiple parties in New Zealand establishing a "trumpian" style political movement in which they focus on austerity measures, as can be seen by the multiple budget cuts we have faced recently
+
+Although we are in a less severe state than the United states, it is still an important thing to investigate
+
+Every single country in the world is also trending towards the United States, so investigating how the liberal side of the United States is responding on one of their most popular social media sites could be seen as forecasting
+
+The point of investigating data at the end of the day is to infer some information about the world through data collection and investigation in the first place
+
+## Learning reflection
+
+One thing that I learned from this assignment was how thought out the process of data collection needs to be to make reasonable inferences about the data collected.
+
+There are a couple of things I would be interested in exploring further
+
+1. Collecting more data over a wider period of time
+2. Investigating the relationships between the data
+    1. Checking if any of the variables have a negative or positive relationship with each other
+    2. Using more advanced plots to investigate further
+
+I think it would be interesting to only investigate posts that had nothing to do with news but instead about the current climate of the United states in general. I think this would give a better understanding of the current mental state of many Americans that use Reddit (even though it is inherently a left leaning site)
+
+## Appendix
+```{r file='exploration.R', eval=FALSE, echo=TRUE}
+
+```
+```{r file='dynamic_report.Rmd', eval=FALSE, echo=TRUE}
+
+```
