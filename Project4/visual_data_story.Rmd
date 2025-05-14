@@ -96,4 +96,4 @@ Based off of all of this data we can make a couple of conclusions
 - Posts relating to domestic U.S affairs are more popular than posts that do not relate to domestic U.S affairs
 - Since posts not directly relating to domestic U.S affairs have a wider audience, the variance in the number of upvotes is higher
 
-
+[Link to github page](https://internetyh.github.io/stats220/visual_data_story.html)
